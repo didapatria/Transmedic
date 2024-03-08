@@ -1,9 +1,10 @@
-'use client'
+"use client"
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { Button, Input } from "@nextui-org/react";
 import { FormEvent, useState } from "react";
-import { FaEye, FaEyeSlash } from "react-icons/fa6";
+import { FaSignature, FaEnvelope, FaEye, FaEyeSlash } from "react-icons/fa6";
 
 export default function RegisterPage() {
   const [isLoading, setIsLoading] = useState(false);
@@ -42,64 +43,130 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-r from-slate-300 to-slate-100">
-      <h1 className="mb-4 text-3xl font-bold">Register</h1>
+    <div className="flex min-h-screen flex-col gap-y-6 items-center justify-center">
+      <h1 className="text-4xl font-bold">Register</h1>
       {error !== "" && (
-        <p className="mb-4 text-red-500">{error}</p>
+        <p className="text-red-500">{error}</p>
       )}
-      <div className="mb-4 rounded bg-white px-8 pb-8 pt-6 shadow-md">
-        <form onSubmit={handleSubmit} className="w-full">
-          <div className="mb-4">
-            <label htmlFor="fullname" className="mb-2 block text-sm font-bold text-gray-700">Full Name</label>
-            <input
-              type="text"
-              name="fullname"
-              id="fullname"
-              className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
-            />
-          </div>
-          <div className="mb-4">
-            <label htmlFor="email" className="mb-2 block text-sm font-bold text-gray-700">Email</label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
-            />
-          </div>
-          <div className="mb-4">
-            <label htmlFor="password" className="mb-2 block text-sm font-bold text-gray-700">Password</label>
-            <div className="relative">
-              <input
-                type={showPassword ? "text" : "password"}
-                name="password"
-                id="password"
-                className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
-              />
-              <div className="absolute inset-y-0 right-0 flex items-center pr-3">
-                <div
-                  className="flex h-6 w-6 cursor-pointer items-center text-gray-500"
-                  onClick={() => setShowPassword(!showPassword)}
-                >
-                  {showPassword ? (
-                    <FaEyeSlash className="w-full" />
-                  ) : (
-                    <FaEye className="w-full" />
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
-          <button
+      <div className="rounded-2xl py-10 px-20 bg-gradient-to-tr from-sky-950 text-white shadow-[-25px_25px_75px_25px_rgba(0,127,255,0.75)]">
+        <form onSubmit={handleSubmit} className="w-full space-y-10">
+          <Input
+            label="Full Name"
+            type="text"
+            name="fullname"
+            id="fullname"
+            size="lg"
+            labelPlacement="outside"
+            classNames={{
+              label: "text-black/50 dark:text-white/90",
+              input: [
+                "bg-transparent",
+                "text-black/90 dark:text-white/90",
+                "placeholder:text-default-700/50 dark:placeholder:text-white/60",
+              ],
+              innerWrapper: "bg-transparent",
+              inputWrapper: [
+                "shadow-xl",
+                "bg-default-200/50",
+                "dark:bg-default/60",
+                "backdrop-blur-xl",
+                "backdrop-saturate-200",
+                "hover:bg-default-200/70",
+                "dark:hover:bg-default/70",
+                "group-data-[focused=true]:bg-default-200/50",
+                "dark:group-data-[focused=true]:bg-default/60",
+                "!cursor-text",
+              ],
+            }}
+            endContent={
+              <FaSignature className="text-2xl text-black/90 dark:text-white/90 text-default-400 pointer-events-none" />
+            }
+          />
+          <Input
+            label="Email"
+            type="email"
+            name="email"
+            id="email"
+            size="lg"
+            labelPlacement="outside"
+            classNames={{
+              label: "text-black/50 dark:text-white/90",
+              input: [
+                "bg-transparent",
+                "text-black/90 dark:text-white/90",
+                "placeholder:text-default-700/50 dark:placeholder:text-white/60",
+              ],
+              innerWrapper: "bg-transparent",
+              inputWrapper: [
+                "shadow-xl",
+                "bg-default-200/50",
+                "dark:bg-default/60",
+                "backdrop-blur-xl",
+                "backdrop-saturate-200",
+                "hover:bg-default-200/70",
+                "dark:hover:bg-default/70",
+                "group-data-[focused=true]:bg-default-200/50",
+                "dark:group-data-[focused=true]:bg-default/60",
+                "!cursor-text",
+              ],
+            }}
+            endContent={
+              <FaEnvelope className="text-2xl text-black/90 dark:text-white/90 text-default-400 pointer-events-none" />
+            }
+          />
+          <Input
+            label="Password"
+            type={showPassword ? "text" : "password"}
+            name="password"
+            id="password"
+            size="lg"
+            labelPlacement="outside"
+            classNames={{
+              label: "text-black/50 dark:text-white/90",
+              input: [
+                "bg-transparent",
+                "text-black/90 dark:text-white/90",
+                "placeholder:text-default-700/50 dark:placeholder:text-white/60",
+              ],
+              innerWrapper: "bg-transparent",
+              inputWrapper: [
+                "shadow-xl",
+                "bg-default-200/50",
+                "dark:bg-default/60",
+                "backdrop-blur-xl",
+                "backdrop-saturate-200",
+                "hover:bg-default-200/70",
+                "dark:hover:bg-default/70",
+                "group-data-[focused=true]:bg-default-200/50",
+                "dark:group-data-[focused=true]:bg-default/60",
+                "!cursor-text",
+              ],
+            }}
+            endContent={
+              <button
+                className="focus:outline-none"
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}>
+                {showPassword ? (
+                  <FaEyeSlash className="text-2xl text-black/90 dark:text-white/90 text-default-400 pointer-events-none" />
+                ) : (
+                  <FaEye className="text-2xl text-black/90 dark:text-white/90 text-default-400 pointer-events-none" />
+                )}
+              </button>
+            }
+          />
+          <Button
             type="submit"
-            className="focus:shadow-outline w-full rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700 focus:outline-none"
-            disabled={isLoading}
+            color="primary"
+            variant="shadow"
+            className="w-full"
+            isLoading={isLoading}
           >
             {isLoading ? "Loading..." : "Register"}
-          </button>
+          </Button>
         </form>
       </div>
-      <p className="mt-4 text-sm text-gray-700">Have an account? Sign in <Link href="/login" className="text-blue-500">here</Link></p>
+      <p className="text-sm text-slate-300">Have an account? Sign in <Link href="/login" className="text-blue-500">here</Link></p>
     </div>
   );
 }
