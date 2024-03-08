@@ -42,6 +42,28 @@ export default function RegisterPage() {
     }
   }
 
+  const styles = {
+    label: "text-black/50 dark:text-white/90",
+    input: [
+      "bg-transparent",
+      "text-black/90 dark:text-white/90",
+      "placeholder:text-default-700/50 dark:placeholder:text-white/60",
+    ],
+    innerWrapper: "bg-transparent",
+    inputWrapper: [
+      "shadow-xl",
+      "bg-default-200/50",
+      "dark:bg-default/60",
+      "backdrop-blur-xl",
+      "backdrop-saturate-200",
+      "hover:bg-default-200/70",
+      "focus-within:!bg-default-200/50",
+      "dark:hover:bg-default/70",
+      "dark:focus-within:!bg-default/60",
+      "!cursor-text",
+    ],
+  };
+
   return (
     <div className="flex min-h-screen flex-col gap-y-6 items-center justify-center">
       <h1 className="text-4xl font-bold">Register</h1>
@@ -57,27 +79,7 @@ export default function RegisterPage() {
             id="fullname"
             size="lg"
             labelPlacement="outside"
-            classNames={{
-              label: "text-black/50 dark:text-white/90",
-              input: [
-                "bg-transparent",
-                "text-black/90 dark:text-white/90",
-                "placeholder:text-default-700/50 dark:placeholder:text-white/60",
-              ],
-              innerWrapper: "bg-transparent",
-              inputWrapper: [
-                "shadow-xl",
-                "bg-default-200/50",
-                "dark:bg-default/60",
-                "backdrop-blur-xl",
-                "backdrop-saturate-200",
-                "hover:bg-default-200/70",
-                "dark:hover:bg-default/70",
-                "group-data-[focused=true]:bg-default-200/50",
-                "dark:group-data-[focused=true]:bg-default/60",
-                "!cursor-text",
-              ],
-            }}
+            classNames={{...styles}}
             endContent={
               <FaSignature className="text-2xl text-black/90 dark:text-white/90 text-default-400 pointer-events-none" />
             }
@@ -89,27 +91,7 @@ export default function RegisterPage() {
             id="email"
             size="lg"
             labelPlacement="outside"
-            classNames={{
-              label: "text-black/50 dark:text-white/90",
-              input: [
-                "bg-transparent",
-                "text-black/90 dark:text-white/90",
-                "placeholder:text-default-700/50 dark:placeholder:text-white/60",
-              ],
-              innerWrapper: "bg-transparent",
-              inputWrapper: [
-                "shadow-xl",
-                "bg-default-200/50",
-                "dark:bg-default/60",
-                "backdrop-blur-xl",
-                "backdrop-saturate-200",
-                "hover:bg-default-200/70",
-                "dark:hover:bg-default/70",
-                "group-data-[focused=true]:bg-default-200/50",
-                "dark:group-data-[focused=true]:bg-default/60",
-                "!cursor-text",
-              ],
-            }}
+            classNames={{...styles}}
             endContent={
               <FaEnvelope className="text-2xl text-black/90 dark:text-white/90 text-default-400 pointer-events-none" />
             }
@@ -121,27 +103,7 @@ export default function RegisterPage() {
             id="password"
             size="lg"
             labelPlacement="outside"
-            classNames={{
-              label: "text-black/50 dark:text-white/90",
-              input: [
-                "bg-transparent",
-                "text-black/90 dark:text-white/90",
-                "placeholder:text-default-700/50 dark:placeholder:text-white/60",
-              ],
-              innerWrapper: "bg-transparent",
-              inputWrapper: [
-                "shadow-xl",
-                "bg-default-200/50",
-                "dark:bg-default/60",
-                "backdrop-blur-xl",
-                "backdrop-saturate-200",
-                "hover:bg-default-200/70",
-                "dark:hover:bg-default/70",
-                "group-data-[focused=true]:bg-default-200/50",
-                "dark:group-data-[focused=true]:bg-default/60",
-                "!cursor-text",
-              ],
-            }}
+            classNames={{...styles}}
             endContent={
               <button
                 className="focus:outline-none"
